@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:theme="?attr/actionBarTheme">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:titleEnabled="false">
+<!--            android:theme="@style/AutoAppTheme.Dark"-->
+
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2">
+<!--                android:layout_marginLeft="@dimen/spacing_normal"-->
+<!--                android:layout_marginStart="@dimen/spacing_normal"-->
+<!--                android:layout_marginTop="@dimen/spacing_thin"-->
+<!--                android:layout_marginEnd="@dimen/spacing_small"-->
+<!--                android:layout_marginRight="@dimen/spacing_small"-->
+
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_gravity="center_vertical" />
+<!--                    android:tint="@color/controlNormal"-->
+<!--                    app:srcCompat="@drawable/ic_my_location_black_24dp" />-->
+
+
+                <EditText
+                    android:id="@+id/edt_origin"/>
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_gravity="center_vertical"/>
+<!--                    android:tint="@color/controlNormal"-->
+<!--                    app:srcCompat="@drawable/ic_location_on_black_24dp" />-->
+
+                <EditText
+                    android:id="@+id/edt_destination"/>
+
+
+            </GridLayout>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <fragment
+        android:id="@+id/mapFragment"
+        class="com.huawei.hms.maps.MapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="fill_vertical"
+        app:layout_anchor="@id/bottom_sheet"
+        app:layout_anchorGravity="top"
+        app:liteMode="false"
+        app:mapType="normal" />
+<!--        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"-->
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_location"
+        style="@style/Widget.MaterialComponents.FloatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        app:backgroundTint="@android:color/white"
+        app:fabSize="normal"
+        app:rippleColor="@color/colorPrimary"/>
+<!--        android:layout_margin="@dimen/spacing_small"-->
+<!--        android:tint="@color/navNormal"-->
+<!--        app:srcCompat="@drawable/ic_my_location_black_24dp" />-->
+
+    <ViewFlipper
+        android:id="@+id/bottom_sheet"
+        style="@style/Widget.Design.BottomSheet.Modal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:behavior_hideable="true"
+        app:behavior_peekHeight="0dp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.core.widget.ContentLoadingProgressBar
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:indeterminate="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
+<!--            android:layout_margin="@dimen/spacing_small"-->
+<!--            android:text="@string/hint_loading_route"-->
+
+        </LinearLayout>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alignmentMode="alignBounds"
+            android:columnCount="2">
+<!--            android:paddingStart="@dimen/spacing_small"-->
+<!--            android:paddingEnd="@dimen/spacing_small">-->
+
+            <TextView
+                android:id="@+id/txv_radars"
+                android:layout_columnSpan="2"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+                tools:text="2 Radares en tu ruta" />
+<!--            android:layout_marginTop="@dimen/spacing_small"-->
+
+            <TextView
+                android:id="@+id/txv_duration"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                tools:text="46 min" />
+<!--                android:layout_marginTop="@dimen/spacing_thin"-->
+<!--                android:layout_marginBottom="@dimen/spacing_small"-->
+
+
+            <TextView
+                android:id="@+id/txv_distance"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                tools:text="(47 km)" />
+<!--            android:layout_marginStart="@dimen/spacing_small"-->
+<!--            android:layout_marginLeft="@dimen/spacing_small"-->
+
+        </GridLayout>
+
+    </ViewFlipper>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

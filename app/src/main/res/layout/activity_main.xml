@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2">
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_gravity="center_vertical" />
+
+        <EditText
+            android:id="@+id/edt_origin"/>
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_gravity="center_vertical"/>
+
+        <EditText
+            android:id="@+id/edt_destination"/>
+    </GridLayout>
+
+    <fragment
+        android:id="@+id/mapFragment"
+        class="com.huawei.hms.maps.MapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cameraTargetLat="48"
+        app:cameraTargetLng="118"
+        app:cameraZoom="2"
+        app:mapType="normal"
+        app:uiCompass="true"
+        app:uiZoomControls="false" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
