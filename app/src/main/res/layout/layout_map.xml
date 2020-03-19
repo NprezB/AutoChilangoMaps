@@ -5,21 +5,53 @@
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-        <EditText
-            android:id="@+id/edt_origin"
+
+        <LinearLayout
+            android:id="@+id/linear_layout_mapbox"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:hint="My place"/>
-        <EditText
-            android:id="@+id/edt_destination"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:hint="My destination"/>
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/edt_origin"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="top"
+                android:gravity="top"
+                android:hint="My place" />
+
+            <EditText
+                android:id="@+id/edt_destination"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="top"
+                android:gravity="top"
+                android:hint="My destination" />
+
+            <view class="androidx.recyclerview.widget.RecyclerView"
+                android:id="@+id/recycler_view_map"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical">
+
+            </view>
+
+<!--            <TextView-->
+<!--                android:id="@+id/nearby_search_result_text"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="bottom"-->
+<!--                android:gravity="center_vertical"-->
+<!--                android:textIsSelectable="true"-->
+<!--                android:textSize="14sp" />-->
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 
     <fragment
         android:id="@+id/mapFragment"
